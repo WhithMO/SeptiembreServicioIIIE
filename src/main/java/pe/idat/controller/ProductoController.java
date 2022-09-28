@@ -62,6 +62,7 @@ public class ProductoController {
 		Producto producto = repository.obtener(id);
 		
 		if (producto != null) {
+			repository.eliminar(id);
 			return new ResponseEntity<Void>(HttpStatus.OK);
 		}
 		else {

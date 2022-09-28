@@ -1,6 +1,7 @@
 package pe.idat.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,30 +17,30 @@ public class ProductoServiceImpl implements ProductoService{
 	
 	@Override
 	public void guardar(Producto producto) {
-		repository.guardar(producto);
+		repository.save(producto);
 		
 	}
 
 	@Override
 	public void actualizar(Producto producto) {
-		repository.actualizar(producto);
+		repository.saveAndFlush(producto);
 		
 	}
 
 	@Override
 	public void eliminar(Integer id) {
-		repository.eliminar(id);
+		repository.deleteById(id);
 		
 	}
 
 	@Override
 	public List<Producto> listar() {
-		return repository.listar();
+		return repository.findAll();
 	}
 
 	@Override
 	public Producto obtener(Integer id) {
-		return repository.obtener(id);
+		return repository.findById(id).orElse(null);
 	}
 
 }
