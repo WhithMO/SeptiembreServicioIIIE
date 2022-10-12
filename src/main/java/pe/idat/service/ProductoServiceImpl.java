@@ -18,19 +18,16 @@ public class ProductoServiceImpl implements ProductoService{
 	@Override
 	public void guardar(Producto producto) {
 		repository.save(producto);
-		
 	}
 
 	@Override
 	public void actualizar(Producto producto) {
 		repository.saveAndFlush(producto);
-		
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		repository.deleteById(id);
-		
 	}
 
 	@Override
